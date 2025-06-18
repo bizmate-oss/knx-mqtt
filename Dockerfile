@@ -1,3 +1,7 @@
 FROM scratch
-ENTRYPOINT ["/knx-mqtt"]
-COPY knx-mqtt /
+
+WORKDIR /app
+
+COPY knx-mqtt ./
+
+ENTRYPOINT ["/pp/knx-mqtt"]
