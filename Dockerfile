@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY knx-mqtt ./
 
-ENTRYPOINT ["/pp/knx-mqtt"]
+ENTRYPOINT ["/app/knx-mqtt"]
