@@ -33,6 +33,7 @@ type IncludedJsonFields struct {
 type KNXConfig struct {
 	ETSExport                   string `yaml:"etsExport"`
 	Endpoint                    string `yaml:"endpoint"`
+	Interface                   string `yaml:"interface"`
 	TunnelMode                  bool   `yaml:"tunnelMode"`
 	IgnoreUnknownGroupAddresses bool   `yaml:"ignoreUnknownGroupAddresses"`
 	EnableLogs                  bool   `yaml:"enableLogs"`
