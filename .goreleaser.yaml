@@ -40,6 +40,7 @@ dockers:
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--platform=linux/amd64"
     use: buildx
+    dockerfile: Dockerfile.go
   - id: arm
     goos: linux
     goarch: arm
@@ -54,6 +55,7 @@ dockers:
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--platform=linux/arm"
     use: buildx
+    dockerfile: Dockerfile.go
     
 docker_manifests:
   - name_template: "hub.bizmate.it/public/knx-mqtt:{{ .Tag }}"

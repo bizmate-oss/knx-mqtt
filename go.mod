@@ -1,6 +1,8 @@
 module github.com/pakerfeldt/knx-mqtt
 
-go 1.24
+go 1.23.0
+
+toolchain go1.24.3
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.5.0

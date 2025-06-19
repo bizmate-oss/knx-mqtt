@@ -23,7 +23,7 @@ type KNXClient struct {
 	knxItems *models.KNX
 	tunnel   *knxgo.GroupTunnel
 	router   *knxgo.GroupRouter
-	inboud   <-chan knxgo.GroupEvent
+	inbound  <-chan knxgo.GroupEvent
 }
 
 func NewClient(ctx context.Context, config models.Config, knxItems *models.KNX) *KNXClient {
@@ -48,7 +48,7 @@ func (c *KNXClient) connect() *error {
 			return &err
 		}
 		c.tunnel = &tunnel
-		c.inboud = c.tunnel.Inbound()
+		c.inbound = c.tunnel.Inbound()
 	} else {
 		routerConfig := knxgo.DefaultRouterConfig
 		if c.cfg.KNX.Interface != "" {
@@ -63,7 +63,7 @@ func (c *KNXClient) connect() *error {
 			return &err
 		}
 		c.router = &router
-		c.inboud = c.router.Inbound()
+		c.inbound = c.router.Inbound()
 	}
 	return nil
 }
@@ -96,7 +96,7 @@ func (c *KNXClient) subscribe(callback func(*msg.KNXMessage)) {
 				case <-c.ctx.Done():
 					log.Info().Msg("Stopping KNX subscription...")
 					return
-				case event, ok := <-c.inboud:
+				case event, ok := <-c.inbound:
 					if !ok {
 						break ReadEvent
 					}
