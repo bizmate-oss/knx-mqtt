@@ -17,14 +17,18 @@ outgoingMqttMessage:
   # Emit values using human readable group address names
   emitUsingName: true
   # Emit the value payload as string, if false, the type will be preserved.
-  emitValueAsString: false
+  emitValueAsString: true
 
   # When sending MQTT messages as JSON, these values determines what should be included.
   includedJsonFields:
-    # Include the field `bytes`, with a base64 representation of the raw bytes
-    bytes: true
+    # Include the field `address`, with Group Address
+    address: true
     # Include the field `name`, containing the human readable name of the address
     name: true
+    # Include the field `bytes`, with a base64 representation of the raw bytes
+    bytes: true
+    # Include the field `dpt`, with datapoint name
+    dpt: true
     # Include the field `value`, containing the raw value or as string representation if emitValueAsString is true
     value: true
     # Include the field `unit`, containing the unit of the datatype (if any)
